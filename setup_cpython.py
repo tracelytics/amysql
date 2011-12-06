@@ -55,7 +55,6 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 """
 
 from distutils.core import setup, Extension
@@ -79,15 +78,20 @@ if sys.platform == "win32":
 
 
 module1 = Extension('amysql',
-                sources = ['amysql.c', 'io_gevent.c', 'capi.cpp', 'Connection.cpp', 'PacketReader.cpp', 'PacketWriter.cpp', 'SHA1.cpp'],
+                sources = ['amysql.c', 'io_cpython.c', 'capi.cpp', 'Connection.cpp', 'PacketReader.cpp', 'PacketWriter.cpp', 'SHA1.cpp'],
                 include_dirs = ['./'],
                 library_dirs = [],
                 libraries=libs,
                 define_macros=[('WIN32_LEAN_AND_MEAN', None)])
 					
 setup (name = 'amysql',
-       version = '1.0',
-       description = '',
-       ext_modules = [module1])
-       
+		version = '1.2',
+		description = 'Ultra fast MySQL driver for Python',
+		ext_modules = [module1],
+		author = "Jonas Tarnstrom",
+		author_email = "jonas.tarnstrom@esn.me",
+		maintainer = "Jonas Tarnstrom",
+		maintainer_email = "jonas.tarnstrom@esn.me",
+		license = "BSD")
+
        
