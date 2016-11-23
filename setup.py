@@ -67,13 +67,13 @@ try:
 	shutil.rmtree("./build")
 except(OSError):
 	pass
-"""    
-    
+"""
+
 libs = []
 
 if sys.platform != "win32":
     libs.append("stdc++")
-    
+
 if sys.platform == "win32":
     libs.append("ws2_32")
 
@@ -84,10 +84,10 @@ module1 = Extension('amysql',
                 library_dirs = [],
                 libraries=libs,
                 define_macros=[('WIN32_LEAN_AND_MEAN', None)])
-					
+
 setup (name = 'amysql',
        version = '1.0',
-       description = '',
+       description = 'Ultra fast MySQL driver for Python',
        ext_modules = [module1])
-       
-       
+
+
