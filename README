@@ -10,3 +10,14 @@ python setup_cpython.py install
 
 For Python with gevent:
 python setup_gevent.py install
+
+:: Building Source Distribution ::
+
+$ python setup.py sdist
+
+:: Building Binary Distribution with Docker::
+
+$ time docker build --force-rm -t tracelytics/amysql .
+$ docker create --name amysql tracelytics/amysql
+$ docker cp amysql:/usr/src/app/dist/amysql-1.0-cp27-cp27mu-linux_x86_64.whl .
+$ docker stop amysql && docker rm amysql
